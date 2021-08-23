@@ -6,7 +6,7 @@ def main():
     print ("\n" + str(persona1) + "\n")
     print(persona1.tostr())
 
-
+##Push desde master2 local
 
 
 main()
