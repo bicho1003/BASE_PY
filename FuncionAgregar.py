@@ -3,12 +3,12 @@ import numpy as np
 
 #Cargar BD.txt
 a = np.loadtxt('BD.txt',dtype=str)
-
+print(a)
 #Contar filas del Array
 cols = 2
 row_labels = []
 column_labels = ['C1','C2']
-    #Row count function
+#Row count function
 def row_count():
     e = 0 #Elementos del array totales
     f = 0 #Filas del Array
@@ -28,16 +28,27 @@ row_count()
 df = pd.DataFrame(a,columns=column_labels,index=row_labels)
 print(df)
 print("\n")
-print(a)
 ###Funcion Agregar###
 a2 = []
+row_labels = []
 def row_add():
-    row_count()
+    a = np.loadtxt('BD.txt',dtype=str)
+    #row_count()
     new = 0
     while new < cols:
         C1 = input("C1: ")
         a2.append(C1)
         new = new+1
-    a.append(a2)
+    #a = np.append(a,a2,axis=0)#No son de la misma dimension #Numpy solution to append
+    #a = np.concatenate((a,[a2]),axis=0,)
+    a = np.vstack((a,a2))
+    print(a)
+    row_count()
+    df = pd.DataFrame(a, columns=column_labels,index=row_labels)
+    print(df)
 row_add()
-print(a)
+row_labels = []
+#row_count()
+#Mostrar DF
+#df = pd.DataFrame(a, columns=column_labels,index=row_labels)
+#print(df)
