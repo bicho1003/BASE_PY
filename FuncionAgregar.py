@@ -1,13 +1,24 @@
-import pandas as pd 
+import pandas as pd
+import csv
 import numpy as np
 
-#Cargar BD.txt
+nombre  = input("Escribe el nombre: ")
+archivo = open("BD.txt","a")
+archivo.write(nombre+"\t")
+archivo.close()
+
+apellido  = input("Escribe el Apellido: ")
+archivo = open("BD.txt","a")
+archivo.write(apellido+"\t")
+archivo.write("\n")
+archivo.close()
+
 a = np.loadtxt('BD.txt',dtype=str)
-print(a)
-#Contar filas del Array
+
 cols = 2
 row_labels = []
-column_labels = ['C1','C2']
+column_labels = ['Nombre','Apellido']
+print("\n")
 #Row count function
 def row_count():
     e = 0 #Elementos del array totales
@@ -23,32 +34,6 @@ def row_count():
         row_labels.append(cont) #Agregar la fila numero x al array
         cont = cont+1
     #column_labels = ['C1','C2']
-row_count()
-#Mostrar DataFrame
-df = pd.DataFrame(a,columns=column_labels,index=row_labels)
-print(df)
-print("\n")
-###Funcion Agregar###
-a2 = []
-row_labels = []
-def row_add():
-    a = np.loadtxt('BD.txt',dtype=str)
-    #row_count()
-    new = 0
-    while new < cols:
-        C1 = input("C1: ")
-        a2.append(C1)
-        new = new+1
-    #a = np.append(a,a2,axis=0)#No son de la misma dimension #Numpy solution to append
-    #a = np.concatenate((a,[a2]),axis=0,)
-    a = np.vstack((a,a2))
-    print(a)
-    row_count()
-    df = pd.DataFrame(a, columns=column_labels,index=row_labels)
+    df = pd.DataFrame(a,columns=column_labels,index=row_labels)
     print(df)
-row_add()
-row_labels = []
-#row_count()
-#Mostrar DF
-#df = pd.DataFrame(a, columns=column_labels,index=row_labels)
-#print(df)
+row_count()
