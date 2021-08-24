@@ -40,6 +40,10 @@ while cont < f+1:
     row_labels.append(cont)
     cont = cont+1
 column_labels = ['Nombre','Apellido']
+##Guardar nueva BD en BD.txt
+newarray = np.savetxt("BD.txt",b,fmt='%s')#%s es el codigo de un string
+print(newarray)
+
 #Nuevo DataFrame de b
 print("Nueva Base de Datos: \n")
 dfb = pd.DataFrame(b,columns=column_labels,index=row_labels)
