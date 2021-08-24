@@ -1,10 +1,8 @@
 import numpy as np
 import pandas as pd
-a = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
-    ]
+
+a = np.loadtxt('BD.txt',dtype=str)
+
 #Contar filas del array
 e = 0 #Elementos del array totales
 f = 0 #Filas del Array
@@ -18,7 +16,7 @@ cont = 1 #Contador del while son las filas que hay
 while cont < f+1:
     row_labels.append(cont) #Agregar la fila numero x al array
     cont = cont+1
-column_labels = ['C1','C2','C3']
+column_labels = ['C1','C2']
 """#Mosrtar el arreglo
 for row in a:
     for elem in row:
