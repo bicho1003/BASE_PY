@@ -16,7 +16,7 @@ cont = 1 #Contador del while son las filas que hay
 while cont < f+1:
     row_labels.append(cont) #Agregar la fila numero x al array
     cont = cont+1
-column_labels = ['C1','C2']
+column_labels = ['Nombre','Apellido']
 """#Mosrtar el arreglo
 for row in a:
     for elem in row:
